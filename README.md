@@ -2,12 +2,12 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular-ui/ui-select?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-AngularJS-native version of [Select2](http://ivaynberg.github.io/select2/) and [Selectize](http://brianreavis.github.io/selectize.js/).
+AngularJS-native version of [Select2](http://ivaynberg.github.io/select2/) and [Selectize](http://brianreavis.github.io/selectize.js/), for use of Clevyr.
 
 - [Demo](http://plnkr.co/edit/a3KlK8dKH3wwiiksDSn2?p=preview)
 - [Demo Multiselect](http://plnkr.co/edit/juqoNOt1z1Gb349XabQ2?p=preview)
-- [Examples](https://github.com/angular-ui/ui-select/blob/master/examples)
-- [Documentation](https://github.com/angular-ui/ui-select/wiki)
+- [Examples](https://github.com/coty-crg/ui-select/blob/master/examples)
+- [Documentation](https://github.com/coty-crg/ui-select/wiki)
 
 
 ## Features

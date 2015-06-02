@@ -16,7 +16,7 @@ describe('ui-select tests', function() {
   };
 
   //create a directive that wraps ui-select
-  angular.module('wrapperDirective',['ui.select']);
+  angular.module('wrapperDirective',['clevyr.ui.select']);
   angular.module('wrapperDirective').directive('wrapperUiSelect', function(){
     return {
       restrict: 'EA',
@@ -36,7 +36,7 @@ describe('ui-select tests', function() {
 
   });
 
-  beforeEach(module('ngSanitize', 'ui.select', 'wrapperDirective'));
+  beforeEach(module('ngSanitize', 'clevyr.ui.select', 'wrapperDirective'));
 
   beforeEach(function() {
     module(function($provide) {
@@ -756,7 +756,7 @@ describe('ui-select tests', function() {
           <ui-select-match></ui-select-match> \
         </ui-select>'
       );
-    }).toThrow(new Error('[ui.select:transcluded] Expected 1 .ui-select-choices but got \'0\'.'));
+    }).toThrow(new Error('[clevyr.ui.select:transcluded] Expected 1 .ui-select-choices but got \'0\'.'));
   });
 
   it('should throw when no repeat attribute is provided to ui-select-choices', function() {
@@ -766,7 +766,7 @@ describe('ui-select tests', function() {
           <ui-select-choices></ui-select-choices> \
         </ui-select>'
       );
-    }).toThrow(new Error('[ui.select:repeat] Expected \'repeat\' expression.'));
+    }).toThrow(new Error('[clevyr.ui.select:repeat] Expected \'repeat\' expression.'));
   });
 
   it('should throw when repeat attribute has incorrect format ', function() {
@@ -777,7 +777,7 @@ describe('ui-select tests', function() {
           <ui-select-choices repeat="incorrect format people"></ui-select-choices> \
       </ui-select>'
       );
-    }).toThrow(new Error('[ui.select:iexp] Expected expression in form of \'_item_ in _collection_[ track by _id_]\' but got \'incorrect format people\'.'));
+    }).toThrow(new Error('[clevyr.ui.select:iexp] Expected expression in form of \'_item_ in _collection_[ track by _id_]\' but got \'incorrect format people\'.'));
   });
 
   it('should throw when no ui-select-match found', function() {
@@ -787,7 +787,7 @@ describe('ui-select tests', function() {
           <ui-select-choices repeat="item in items"></ui-select-choices> \
         </ui-select>'
       );
-    }).toThrow(new Error('[ui.select:transcluded] Expected 1 .ui-select-match but got \'0\'.'));
+    }).toThrow(new Error('[clevyr.ui.select:transcluded] Expected 1 .ui-select-match but got \'0\'.'));
   });
 
   it('should format the model correctly using alias', function() {
