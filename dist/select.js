@@ -6,7 +6,7 @@
  */
 
 
-(function () { 
+(function () {
 "use strict";
 
 var KEY = {
@@ -280,7 +280,7 @@ uis.controller('uiSelectCtrl',
   if (ctrl.searchInput.length !== 1) {
     throw uiSelectMinErr('searchInput', "Expected 1 input.ui-select-search but got '{0}'.", ctrl.searchInput.length);
   }
-  
+
   ctrl.isEmpty = function() {
     return angular.isUndefined(ctrl.selected) || ctrl.selected === null || ctrl.selected === '';
   };
@@ -780,7 +780,7 @@ uis.directive('uiSelect',
       if (angular.isDefined(tAttrs.multiple))
         tElement.append("<ui-select-multiple/>").removeAttr('multiple');
       else
-        tElement.append("<ui-select-single/>");       
+        tElement.append("<ui-select-single/>");
 
       return function(scope, element, attrs, ctrls, transcludeFn) {
 
@@ -802,7 +802,7 @@ uis.directive('uiSelect',
 
         $select.onSelectCallback = $parse(attrs.onSelect);
         $select.onRemoveCallback = $parse(attrs.onRemove);
-        
+
         //Set reference to ngModel from uiSelectCtrl
         $select.ngModel = ngModel;
 
@@ -1098,7 +1098,7 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
           $select = $scope.$select,
           ngModel;
 
-      //Wait for link fn to inject it 
+      //Wait for link fn to inject it
       $scope.$evalAsync(function(){ ngModel = $scope.ngModel; });
 
       ctrl.activeMatchIndex = -1;
@@ -1110,7 +1110,7 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
 
       ctrl.refreshComponent = function(){
         //Remove already selected items
-        //e.g. When user clicks on a selection, the selected array changes and 
+        //e.g. When user clicks on a selection, the selected array changes and
         //the dropdown should remove that item
         $select.refreshItems();
         $select.sizeSearchInput();
@@ -1209,7 +1209,7 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
         };
         if (!inputValue) return resultMultiple; //If ngModel was undefined
         for (var k = inputValue.length - 1; k >= 0; k--) {
-          //Check model array of currently selected items 
+          //Check model array of currently selected items
           if (!checkFnMultiple($select.selected, inputValue[k])){
             //Check model array of all items available
             if (!checkFnMultiple(data, inputValue[k])){
@@ -1220,8 +1220,8 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
         }
         return resultMultiple;
       });
-      
-      //Watch for external model changes 
+
+      //Watch for external model changes
       scope.$watchCollection(function(){ return ngModel.$modelValue; }, function(newValue, oldValue) {
         if (oldValue != newValue){
           ngModel.$modelValue = null; //Force scope model value and ngModel value to be out of sync to re-run formatters
@@ -1816,9 +1816,9 @@ $templateCache.put("selectize/match.tpl.html","<div ng-hide=\"($select.open || $
 $templateCache.put("selectize/select.tpl.html","<div class=\"ui-select-container selectize-control single\" ng-class=\"{\'open\': $select.open}\"><div class=\"selectize-input\" ng-class=\"{\'focus\': $select.open, \'disabled\': $select.disabled, \'selectize-focus\' : $select.focus}\" ng-click=\"$select.activate()\"><div class=\"ui-select-match\"></div><input type=\"text\" autocomplete=\"off\" tabindex=\"-1\" class=\"ui-select-search ui-select-toggle\" ng-click=\"$select.toggle($event)\" placeholder=\"{{$select.placeholder}}\" ng-model=\"$select.search\" ng-hide=\"!$select.searchEnabled || ($select.selected && !$select.open)\" ng-disabled=\"$select.disabled\" aria-label=\"{{ $select.baseTitle }}\"></div><div class=\"ui-select-choices\"></div></div>");
 
 //selectize search results (dropdown) //Requires Angular Material
-$templateCache.put("selectize/select-multiple.tpl.html","<div class=\"ui-select-container ui-select-multiple\" style=\"width: 100%; position: relative; font-weight: normal; display: block; text-align: left; font-family: 'Open Sans', Helvetica, arial, sans-serif; font-size: 15px; color: #444B58; text-shadow: 0 1px 0 rgba(0,0,0,0.05); -webkit-font-smoothing: antialiased; background: #f1f6f7; padding-right: 5px; padding-left: 5px; padding: 5px 8px 2px;  position: relative; \"><ul style=\"width: 100%;\"><span class=\"ui-select-match\" style=\"width: 100%;\"></span><li class=\"\" style=\"z-index: 1; display: inline-block; width: 100%; overflow: hidden; border: 1px solid #d0d0d0;border-radius: 3px; line-height: 18px; font-weight: normal; width: 100%;\"><md-input-container flex><input type=\"text\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" role=\"combobox\" aria-expanded=\"true\" aria-owns=\"ui-select-choices-{{ $select.generatedId }}\" aria-label=\"{{ $select.baseTitle }}\" aria-activedescendant=\"ui-select-choices-row-{{ $select.generatedId }}-{{ $select.activeIndex }}\" class=\" ui-select-search\" placeholder=\"{{$selectMultiple.getPlaceholder()}}\" ng-disabled=\"$select.disabled\" ng-hide=\"$select.disabled\" ng-model=\"$select.search\" ng-click=\"$select.activate()\" ondrop=\"return false;\" ></md-input-container></li></ul><div class=\"ui-select-dropdown\" style=\"width: 100%;\"><div class=\"ui-select-choices\" style=\"z-index: 1; display: inline-block; width: 100%; overflow: hidden; border: 1px solid #d0d0d0;border-radius: 3px; line-height: 18px; font-weight: normal; width: 100%;top: 36px;left: 0px;   position: absolute; z-index: 10;   margin: -1px 0 0 0;   background: #ffffff;   border: 1px solid #d0d0d0; border-top: 0 none; border-radius: 0 0 3px 3px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-sizing: border-box; font-family: inherit; font-size: 13px; -webkit-font-smoothing: inherit;   line-height: 18px;  color: #303030;\"></div></div></div>");
+$templateCache.put("selectize/select-multiple.tpl.html","<div class=\"ui-select-container ui-select-multiple\" ><ul><span class=\"ui-select-match\"></span><li class=\"\" ><md-input-container flex md-no-float><input type=\"text\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" role=\"combobox\" aria-expanded=\"true\" aria-owns=\"ui-select-choices-{{ $select.generatedId }}\" aria-label=\"{{ $select.baseTitle }}\" aria-activedescendant=\"ui-select-choices-row-{{ $select.generatedId }}-{{ $select.activeIndex }}\" class=\" ui-select-search\" placeholder=\"{{$selectMultiple.getPlaceholder()}}\" ng-disabled=\"$select.disabled\" ng-hide=\"$select.disabled\" ng-model=\"$select.search\" ng-click=\"$select.activate()\" ondrop=\"return false;\" ></md-input-container></li></ul><div class=\"ui-select-dropdown\" ><div class=\"ui-select-choices\" ></div></div></div>");
 
 //selectize match results (with x)
-$templateCache.put("selectize/match-multiple.tpl.html","<span class=\"ui-select-match\"><li class=\"ui-select-match-item\" ng-repeat=\"$item in $select.selected\" ui-select-sort=\"$select.selected\" style=\"text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);background-color: #1b9dec; background-image: linear-gradient(to bottom, #008fd8, #0075cf); font-family: inherit; display: inline-block;   padding: 2px 6px;margin: 0 3px 3px 0;color: #ffffff;cursor: pointer;background: #1da7ee; border: 1px solid #0073bb; color: #ffffff; font-size: 13px; font-style: normal;font-variant: normal; font-weight: normal;   position: relative;padding-right: 24px !important;\"><span uis-transclude-append=\"\"></span> <a href=\"javascript:;\" class=\"ui-select-match-close\" ng-click=\"$selectMultiple.removeChoice($index)\" tabindex=\"-1\" style=\"border-radius: 0 2px 2px 0; box-sizing: border-box; text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);  position: absolute;top: 0;right: 0;bottom: 0;display: inline-block;width: 17px;padding: 2px 0 0 0;font-size: 12px;font-weight: bold;color: inherit;text-align: center;text-decoration: none;vertical-align: middle;border-left: 1px solid #0073bb; font-family: inherit; line-height: 18px;\">x</a></li></span>");  
+$templateCache.put("selectize/match-multiple.tpl.html","<span class=\"ui-select-match\"><li class=\"ui-select-match-item\" ng-repeat=\"$item in $select.selected\" ui-select-sort=\"$select.selected\" ><span uis-transclude-append=\"\"></span> <a href=\"javascript:;\" class=\"ui-select-match-close\" ng-click=\"$selectMultiple.removeChoice($index)\" tabindex=\"-1\" ><md-icon>close</md-icon></a></li></span>");
 
 }]);
