@@ -47,7 +47,7 @@ gulp.task('scripts', ['clean'], function() {
              spare: true,
              quotes: true
             }))
-      .pipe(templateCache({module: 'clevyr.ui.select'}));
+      .pipe(templateCache({module: 'ui.select'}));
   };
 
   var buildLib = function(){
